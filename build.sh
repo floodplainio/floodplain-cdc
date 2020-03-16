@@ -1,0 +1,17 @@
+/Library/Java/JavaVirtualMachines/graalvm-ce-java11-19.3.1/Contents/Home/bin/native-image \
+	-J-Dsun.nio.ch.maxUpdateArraySize=100 \
+	-J-Djava.util.logging.manager=org.jboss.logmanager.LogManager \
+	-J-Dvertx.logger-delegate-factory-class-name=io.quarkus.vertx.core.runtime.VertxLogDelegateFactory \
+	-J-Dvertx.disableDnsResolver=true \
+	-J-Dio.netty.leakDetection.level=DISABLED \
+	-J-Dio.netty.allocator.maxOrder=1 \
+	-J-Duser.language=en \
+	-J-Dfile.encoding=UTF-8 \
+	--initialize-at-build-time= \
+	-H:InitialCollectionPolicy='com.oracle.svm.core.genscavenge.CollectionPolicy$BySpaceAndTime' \
+	-H:+JNI \
+	-jar build/cdc-application-0.3-runner.jar \
+	-H:FallbackThreshold=0 \
+	-H:+ReportExceptionStackTraces \
+	-H:-AddAllCharsets -H:-IncludeAllTimeZones \
+	-H:-SpawnIsolates --no-server -H:-UseServiceLoaderFeature -H:+StackTrace cdc-application-0.3-runner
