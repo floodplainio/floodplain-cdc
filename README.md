@@ -1,5 +1,9 @@
 # cdc-application project
 
+This is an example application that creates an example change feed.
+
+![](./dvd.svg)
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
