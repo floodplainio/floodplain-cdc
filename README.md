@@ -2,14 +2,52 @@
 
 This is an example application that creates an example change feed.
 
-![](./dvd.svg)
+## Building
+The building process is gradle+docker+docker-compose
+This should work:
+```
+./gradlew build
+```
+to build the source, and then:
+```
+docker-compose build
+```
+to build the container.
 
-Again:
+Then run the containers (both the database and the application):
+```
+docker-compose up
+```
 
+
+The data model isn't particularly interesting, it is a pretty classical denormalized datamodel
 <img src="dvd.svg" width="100%">.
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+The source for the database container is in this repository:
 
+https://github.com/floodplainio/postgres-debezium-dvdrental
+
+This app simulates an application that makes changes to a database. At the moment of writing, it will insert records into the 'payment' table, referring to random staff, rentals and customer.
+Also they will use a random amount.
+
+You can see this happen if you connect to this database. The connection string is:
+
+When connecting from a local machine:
+
+postgresql://postgres:mysecretpassword@localhost:5432/dvdrental
+
+When connecting from a docker container:
+(the service name is 'postgres', and this will only work when the container is linked to the network: floodplain-cdc_default)
+postgresql://postgres:mysecretpassword@postgres:5432/dvdrental
+
+If you connect using your client of choice, you can check the number of payments:
+
+```sql
+select count(*) from payment
+```
+and the result should steadily increase.
+
+It is written in Quarkus / Kotlin / Java 11
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
 ## Running the application in dev mode
@@ -31,13 +69,3 @@ If you want to build an _über-jar_, just add the `--uber-jar` option to the com
 ```
 ./gradlew quarkusBuild --uber-jar
 ```
-
-## Creating a native executable
-
-You can create a native executable using: `./gradlew buildNative`.
-
-Or you can use Docker to build the native executable using: `./gradlew buildNative --docker-build=true`.
-
-You can then execute your binary: `./build/cdc-application-0.1-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/gradle-tooling#building-a-native-executable .
