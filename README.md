@@ -2,7 +2,11 @@
 
 This is an example application that creates an example change feed.
 
-![](./dvd.svg =800x800)
+![](./dvd.svg)
+
+Again:
+
+<img src="dvd.svg" width="100%">.
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
