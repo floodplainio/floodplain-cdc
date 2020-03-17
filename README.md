@@ -4,7 +4,7 @@ This is an example application that creates an example change feed.
 
 ## Building
 The building process is gradle+docker+docker-compose
-This should work:
+This should do the trick:
 ```
 ./gradlew build
 ```
@@ -20,7 +20,7 @@ docker-compose up
 ```
 
 
-The data model isn't particularly interesting, it is a pretty classical denormalized datamodel
+The data model isn't particularly interesting, it is a pretty classical denormalized datamodel:
 <img src="dvd.svg" width="100%">.
 
 The source for the database container is in this repository:
@@ -51,7 +51,7 @@ It is written in Quarkus / Kotlin / Java 11
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
 ## Running the application in dev mode
-
+(note: Not working well for Kotlin at the time of writing, should be better in the future. In the mean time, CTRL+C it and start it again to pick up changes)
 You can run your application in dev mode that enables live coding using:
 ```
 ./gradlew quarkusDev
