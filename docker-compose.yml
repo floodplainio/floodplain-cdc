@@ -1,7 +1,7 @@
 version: "2"
 services:
   postgres:
-    image: floodplain/postgres-debezium-dvdrental:1.0.0
+    image: floodplain/floodplain-postgres-demo:1.0.0
     ports:
       - "5432:5432"
     environment:
