@@ -34,7 +34,7 @@ You can see this happen if you connect to this database. The connection string i
 
 When connecting from a local machine:
 
-postgresql://postgres:mysecretpassword@localhost:5432/dvdrental
+postgresql://localhost:mysecretpassword@localhost:5432/dvdrental
 
 When connecting from a docker container:
 (the service name is 'postgres', and this will only work when the container is linked to the network: floodplain-cdc_default)

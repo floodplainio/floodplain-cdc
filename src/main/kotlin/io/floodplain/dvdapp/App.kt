@@ -41,7 +41,7 @@ open class App {
 			while(true)
 			repeat(Integer.MAX_VALUE) { _->
 				insertRandomPayment()
-				delay(500)
+				delay(2500)
 			}
 		}
 		Thread.sleep(5000L)
