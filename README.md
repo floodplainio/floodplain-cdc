@@ -1,6 +1,9 @@
 # cdc-application project
 
-This is an example application that creates an example change feed.
+This is an example application to show case Change Data Capture (CDC). By it self this application does not do any change data capture, it is a simple JVM application that connects to a postgres database and inserts rows in a certain table.
+In the future we might expand the scope of the changes it will make, but for now this is all.
+
+This application is a model for a living, changing data model.
 
 ## Building
 The building process is gradle+docker+docker-compose
